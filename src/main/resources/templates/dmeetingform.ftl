@@ -42,7 +42,15 @@
         <#--</div>-->
 
         <#list members as member>
-            <label> Tema de ${member.name}: <input name="topic${member.id}" type="text"/> </label> <br/>
+            <#--<label> Tema de ${member.name}: <input name="topic${member.id}" type="text"/> </label> <br/>-->
+            <div class="form-group">
+                <label for="topic-${member.id}">Tema de ${member.name}</label>
+                <input name="topic${member.id}" type="text" class="form-control" id="topic-${member.id}"/>
+                <input name="check${member.id}" checked="checked" type="checkbox" class="form-check-input" id="check-${member.id}"/>
+                <label class="form-check-label" for="check-${member.id}">Participa</label>
+            </div>
+            <#--<div class="form-check">-->
+            <#--</div>-->
         </#list>
 
             <button id="dmeeting-form-btn" type="button" class="btn btn-primary col-xs-6 col-xs-12">Crear</button>

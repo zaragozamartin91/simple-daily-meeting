@@ -39,17 +39,13 @@ public class DailyMeetingController {
 
     @PostMapping(value = "/dmeeting", consumes = "application/x-www-form-urlencoded;charset=UTF-8")
     //    @PostMapping(value = "/dmeeting")
-    public String createDailyMeeting(@RequestBody String body) throws IOException {
+    public String createDailyMeeting(@RequestBody String body, Model model) throws IOException {
         //        System.out.println(params);
 
         String decodedBody = URLDecoder.decode(body, "UTF-8");
 
-        //        ServletInputStream inputStream = request.getInputStream();
-        //        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-        //        String line;
-        //        while ((line = bufferedReader.readLine()) != null) {
-        //            System.out.println(line);
-        //        }
+
+
         return "redirect:/dmeetingform";
     }
 }
