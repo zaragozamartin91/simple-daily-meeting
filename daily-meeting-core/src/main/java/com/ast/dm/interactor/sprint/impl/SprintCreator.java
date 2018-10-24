@@ -20,7 +20,7 @@ public class SprintCreator implements CreateSprint {
     }
 
     @Override public CreateSprintResponse execute(CreateSprintRequest request) throws InvalidSprintException {
-        Sprint sprint = new Sprint(request.startDate, request.endDate);
+        Sprint sprint = new Sprint(request.startDate, request.endDate, request.title);
         Sprint newSprint = sprintGateway.save(sprint);
         return new CreateSprintResponse(newSprint.id, newSprint.getStartDate(), newSprint.getEndDate());
     }

@@ -19,8 +19,9 @@ public class DbSprintGateway implements SprintGateway {
         SprintModel sprintModel = new SprintModel();
         sprintModel.setStartDate(sprint.getStartDate());
         sprintModel.setEndDate(sprint.getEndDate());
+        sprintModel.setTitle(sprint.getTitle());
         SprintModel newSprintModel = sprintRepository.save(sprintModel);
 
-        return new Sprint(newSprintModel.getId(), newSprintModel.getStartDate(), newSprintModel.getEndDate());
+        return new Sprint(newSprintModel.getId(), newSprintModel.getStartDate(), newSprintModel.getEndDate(), sprintModel.getTitle());
     }
 }

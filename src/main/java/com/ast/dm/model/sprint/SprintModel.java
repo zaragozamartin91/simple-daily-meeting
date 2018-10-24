@@ -26,6 +26,8 @@ public class SprintModel {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "sprint")
     private Set<DailyMeetingModel> dmeetings = new HashSet<>();
 
+    private String title = "";
+
     public Long getId() {
         return id;
     }
@@ -56,5 +58,13 @@ public class SprintModel {
 
     public void setDmeetings(Set<DailyMeetingModel> dmeetings) {
         this.dmeetings = dmeetings;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

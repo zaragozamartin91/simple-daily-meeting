@@ -11,38 +11,46 @@
 <#import "lib/navigator.ftl" as n>
 <@n.navelem homeClass="" sprintClass="active" dmeetingClass="" />
 
+
+
+
+<!-- Main component for a primary marketing message or call to action -->
 <div class="container">
 
 <#if sprintId??>
-    <p class="text-success">Sprint ${sprintId} creado exitosamente</p>
+    <div class="alert alert-success" role="alert">Sprint ${sprintId} creado exitosamente</div>
 </#if>
 
 <#if error??>
-    <p class="text-danger">${error}</p>
+    <div class="alert alert-danger" role="alert">${error}</div>
 </#if>
 
-    <!-- Main component for a primary marketing message or call to action -->
-    <div class="container">
-        <h1>Alta de sprint</h1>
-        <p>Crear un sprint que contenga una o mas daily meetings</p>
+    <h1>Alta de sprint</h1>
+    <p>Crear un sprint que contenga una o mas daily meetings</p>
 
-        <form id="sprint-form" action="sprint" method="post">
-            <input type="hidden"
-                   name="${_csrf.parameterName}"
-                   value="${_csrf.token}"/>
-            <label>
-                Fecha de inicio:
-                <input name="startDate" type="date"/>
-            </label><br/>
-            <label>
-                Fecha de cierre:
-                <input name="endDate" type="date"/>
-            </label><br/>
-            <button id="sprint-form-btn" type="button" class="btn btn-primary col-xs-12">Crear</button>
-        </form>
-    </div>
+    <form id="sprint-form" action="sprint" method="post">
+        <input type="hidden"
+               name="${_csrf.parameterName}"
+               value="${_csrf.token}"/>
 
+        <div class="form-group">
+            <label for="sprint-title">Titulo</label>
+            <input name="title" type="text" class="form-control" id="sprint-title"/>
+        </div>
+
+        <label>
+            Fecha de inicio:
+            <input name="startDate" type="date"/>
+        </label><br/>
+        <label>
+            Fecha de cierre:
+            <input name="endDate" type="date"/>
+        </label><br/>
+        <button id="sprint-form-btn" type="button" class="btn btn-primary col-xs-12">Crear</button>
+    </form>
 </div>
+
+
 
 <#import "lib/scripts.ftl" as s>
 <@s.elems />
