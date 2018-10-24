@@ -39,4 +39,8 @@ public class Sprint {
     public String getTitle() {
         return title;
     }
+
+    public boolean notExpired() {
+        return this.endDate.getTime() > new Date().getTime();
+    }
 }
