@@ -12,6 +12,13 @@ public class DailyMeeting {
     public final Sprint sprint;
     public final List<Topic> topics;
 
+    public DailyMeeting(Date date, Sprint sprint, List<Topic> topics) {
+        id = 0;
+        this.date = date;
+        this.sprint = sprint;
+        this.topics = topics;
+    }
+
     public DailyMeeting(long id, Date date, Sprint sprint, List<Topic> topics) {
         this.id = id;
         this.date = date;

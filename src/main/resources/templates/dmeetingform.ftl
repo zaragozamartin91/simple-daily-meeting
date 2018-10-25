@@ -13,13 +13,10 @@
 
 <div class="container">
 
-<#if sprintId??>
-    <p class="text-success">Sprint ${sprintId} creado exitosamente</p>
+<#if error??>
+    <div class="alert alert-danger" role="alert">${error}</div>
 </#if>
 
-<#if error??>
-    <p class="text-danger">${error}</p>
-</#if>
 
     <!-- Main component for a primary marketing message or call to action -->
     <div class="container">
