@@ -9,6 +9,10 @@ public class Member {
     public final String name;
     public final String role;
 
+    public Member(long id) {
+        this(id, "", "", "");
+    }
+
     public Member(long id, String username, String name, String role) {
         this.id = id;
         this.username = username;

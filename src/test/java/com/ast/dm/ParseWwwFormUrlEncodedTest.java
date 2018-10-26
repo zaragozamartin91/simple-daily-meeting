@@ -36,6 +36,7 @@ public class ParseWwwFormUrlEncodedTest {
         } catch (Exception e) {
             throw new InvalidSprintIdException("Id de sprint invalido!", e);
         }
+        System.out.println("sprint id:" + sprintId);
 
         List<String> checkFields = Arrays
                 .stream(fields)
@@ -51,10 +52,31 @@ public class ParseWwwFormUrlEncodedTest {
                 .filter(s -> s.matches("topic\\d+=.*"))
                 .collect(Collectors.toList());
 
-        List<String> topicKeys = topicFields.stream().map(s -> s.split("=")[0]).collect(Collectors.toList());
-        List<Long> topicIds = topicKeys.stream().map(s -> s.replaceAll("topic", "")).map(Long::valueOf).collect(Collectors.toList());
-        List<String> topicValues = topicFields.stream().map(s -> s.split("=")[1]).collect(Collectors.toList());
+        List<MemberTopicPair> memberTopicPairs = topicFields.stream().map(tf -> {
+            String topicKey = tf.split("=")[0];
+            Long memberId = Long.valueOf(topicKey.replaceAll("topic", ""));
+            String topicValue = tf.split("=")[1];
+            return new MemberTopicPair(memberId, topicValue);
+        }).collect(Collectors.toList());
 
+        System.out.println(memberTopicPairs);
+    }
 
+    static class MemberTopicPair {
+        public final long memberId;
+        public final String topicValue;
+
+        MemberTopicPair(long memberId, String topicValue) {
+            this.memberId = memberId;
+            this.topicValue = topicValue;
+        }
+
+        @Override public String toString() {
+            final StringBuilder sb = new StringBuilder("MemberTopicPair{");
+            sb.append("memberId=").append(memberId);
+            sb.append(", topicValue='").append(topicValue).append('\'');
+            sb.append('}');
+            return sb.toString();
+        }
     }
 }

@@ -9,6 +9,10 @@ public class Sprint {
     private Date endDate;
     private String title;
 
+    public Sprint(long id) {
+        this.id = id;
+    }
+
     public Sprint(Date startDate, Date endDate, String title) {
         this(0, startDate, endDate, title);
     }

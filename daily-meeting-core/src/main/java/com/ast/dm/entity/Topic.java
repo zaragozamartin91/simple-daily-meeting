@@ -5,6 +5,10 @@ public class Topic {
     public final Member member;
     public final String description;
 
+    public Topic(Member member, String description) {
+        this(0, member, description);
+    }
+
     public Topic(long id, Member member, String description) {
         this.id = id;
         this.member = member;

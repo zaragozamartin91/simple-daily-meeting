@@ -13,6 +13,11 @@
 
 <div class="container">
 
+<#if dmeetingId??>
+    <div class="alert alert-success" role="alert">Daily meeting ${dmeetingId} creado exitosamente</div>
+</#if>
+
+
 <#if error??>
     <div class="alert alert-danger" role="alert">${error}</div>
 </#if>
