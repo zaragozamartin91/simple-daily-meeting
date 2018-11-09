@@ -73,7 +73,7 @@
         document.querySelector("#dmeeting-form-btn").onclick = function (e) {
             e.preventDefault();
             document.querySelector("#dmeeting-form").submit();
-        }
+        };
     });
 </script>
 
